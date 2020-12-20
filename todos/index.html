@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+
+    <script>
+      const electron = require('electron');
+      const { icpRenderer } = electron;
+
+      icpRenderer.on('todo:add', (event, todo)=> {
+        const li = document.createElement('li');
+        const text = document.createTextNode(todo);
+
+        li.appendChild(text);
+        document.querySelector('ul').appendChild(li);
+      })
+    </script>
+  </body>
+</html>
